@@ -78,6 +78,7 @@ public class XML_To_JSON_Converter_JCSMP  {
 			try {
 				session = solaceFactory.createSession();
 				session.connect();
+				Thread.sleep(1000);
 			} catch (InvalidPropertiesException e1) {
 				logger.info(e1.getLocalizedMessage());
 				e1.printStackTrace();
