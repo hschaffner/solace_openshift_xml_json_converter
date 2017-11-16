@@ -77,6 +77,7 @@ public class XML_To_JSON_Converter_JCSMP  {
 
 			try {
 				session = solaceFactory.createSession();
+				session.connect();
 			} catch (InvalidPropertiesException e1) {
 				logger.info(e1.getLocalizedMessage());
 				e1.printStackTrace();
@@ -117,6 +118,7 @@ public class XML_To_JSON_Converter_JCSMP  {
 			flowProps.setEndpoint(queue);
 			FlowReceiver flow = session.createFlow(this, flowProps);
 			flow.start();
+			
 			
 			cons.start();
 
