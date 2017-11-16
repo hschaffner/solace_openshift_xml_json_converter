@@ -129,8 +129,8 @@ public class XML_To_JSON_Converter_JCSMP  {
 		}
 
 		@Override
-		public void onException(JCSMPException arg0) {
-			// TODO Auto-generated method stub
+		public void onException(JCSMPException je) {
+			logger.info(" +++++++++++++ Received JCSMPException:\n\t" + je.getLocalizedMessage());
 
 		}
 
@@ -198,7 +198,10 @@ public class XML_To_JSON_Converter_JCSMP  {
 				//block waiting for semaphore
 				try
 				{
+					logger.info("+++++++++++ About to aquire semaphore");
 					sem.acquire();
+					logger.info("+++++++++++ No longer blocking on semaphore semaphore");
+					
 				}
 				catch(InterruptedException e)
 				{
